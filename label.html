@@ -13,9 +13,7 @@ document.compatMode：兼容性模式。CSS1Compat:W3C的标准兼容性模式  
       <meta charset="UTF-8">：防止页面的中文出现乱码情况。
       编码字符集：GB2312：中国信息处理国家标准码，解析的是简体中文编码。 GBK：汉字扩展规范，扩大汉字收录，
 增加了繁体中文、藏蒙维等少数民族的文字。UTF-8：万国码，几乎认识所有的文字。
-
       搜索引擎认知的优先级：title > description(自我介绍) > keywords
-      
 -->
 
 <head>
@@ -24,43 +22,45 @@ document.compatMode：兼容性模式。CSS1Compat:W3C的标准兼容性模式  
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Document</title>
 </head>
-<!-- 结构标签：body页面呈现区域。-->
 
+<!-- 结构标签：body页面呈现区域。-->
 <body>
-      <!-- 标签分为语义化标签和物理性标签。语义化标签是单词的缩写或者全称，更迎合爬虫程序。因此编程一般
-使用语义化标签。标签还分为内联元素、块级元素、内联块元素。元素是标签加上标签内的内容。
+      <!-- 标签分为语义化标签和物理性标签。语义化标签是单词的缩写或者全称，更迎合爬虫程序。标签还分为
+内联元素、块级元素、内联块元素。元素是标签加上标签内的内容。
 inline element 内联元素：不独占一行，无法定义宽高。
-      span/strong/em/del/ins/label/a/sub/sup
+      span/strong/sub/sup/a/del/em/label//ins
 block element 块级元素：独占一行，可以定义宽高。
-      div/hx/p/address/ul/ol/li/dl/dt/dd/table/form/fieldset/legend
+      address/div/dl/dt/dd/ul/ol/li/form/fieldset/legend/hx/p/table
 inline-block element 内联块元素：不独占一行，可以定义宽高
-      input/img/select/textarea/iframe/button
+      button/img/iframe/input/select/textarean
       标签嵌套问题：内联元素可以嵌套内联元素，块级元素可以嵌套任何元素。注意：p标签不可以嵌套div，
 a标签不可以嵌套a标签。
 -->
 
-      <!-- 1、 inline element 内联元素：不独占一行，无法定义宽高。-->
-      <!-- 1.1、strong/bold strong/b 粗体标签。strong是语义化标签，bold是物理性标签。 -->
+      <!-- 1、 inline element 内联元素：不独占一行，无法定义宽高。
+      span/strong/sub/sup/a/del/em/label//ins
+      -->
+      <!--1.1、span。特点：默认没有样式。常用于在文本区给重要的内容加样式，或者提取段落中的文字。-->
+      <p>我是一名<span id="niu" style="color: red;">前端</span>程序师</p>
+      <!-- 
+      let job = document.getElementById('niu') 
+      console.log(job.innerText)
+      -->
+
+      <!-- 1.2、strong/bold strong/b 粗体标签。strong是语义化标签，bold是物理性标签。 -->
       <strong>我是strong标签</strong>
       <br />
       <b>我是bold标签</b>
       <br />
-      <!--  1.2、emphasize/italic em/i 斜体标签。emphasize是语义化标签，italic是物理性标签。
-实际开发过程中i标签只用于加图标。-->
-      <em>我是emphasize标签</em>
+
+      <!-- 1.3、superscripted sup 上标标签   1.4、subscripted sub 下标标签-->
+      前端<sup><a href="">[1]</a></sup>
       <br />
-      <i>我是italic标签</i>
-      <br />
-      <!-- 1.3、delete  del 删除标签。 -->
-      <del>我是delete标签</del>
-      <br />
-      <p style="text-decoration: line-through;">我是p标签</p>
-      <!-- 1.4、insert ins 下划线标签。 -->
-      <ins>我是insert标签</ins>
-      <br />
-      <p style="text-decoration: underline;">我是p标签</p>
-      <!-- 1.5、anchor a 锚点/超链接标签。href/hypertext reference 超文本引用：跳转地址。
-target：跳转页面所呈现的地点。<a>可以用于超链接标签、打电话、发邮件、锚点定位、协议限定符（点击a不跳转）
+      10<sup>5</sup>
+      Na<sub>+</sub>
+
+      <!-- 1.4、anchor a 锚点/超链接标签。href/hypertext reference 超文本引用：跳转地址。
+target：指定在何处显示链接的资源。<a>可以用于超链接标签、打电话、发邮件、锚点定位、协议限定符（点击a不跳转）
       -->
       <a href="https://www.baidu.com" target="_blank">百度一下</a>
       <br />
@@ -70,46 +70,66 @@ target：跳转页面所呈现的地点。<a>可以用于超链接标签、打�
       <br />
       <a href="#box1">123</a>
       <a href="javascript:;">打开弹窗</a>
-      <!-- 1.6、superscripted sup 上标标签  
-            1.7、subscripted sub 下标标签-->
-      前端<sup><a href="">[1]</a></sup>
+
+      <!-- 1.5、delete  del 删除标签。 -->
+      <del>我是delete标签</del>
       <br />
-      10<sup>5</sup>
-      Na<sub>+</sub>
-      <!--1.8、span。特点：默认没有样式。作用就是在文本区，给重要的内容加样式。也可以用于获取
-段落中的某些文字-->
-      <p>我是一名<span id="niu" style="color: red;">前端</span>程序师</p>
-      <!-- let job = document.getElementById('niu') 
-            console.log(job.innerText)
-      -->
+      <p style="text-decoration: line-through;">我是p标签</p>
+
+      <!--  1.6、emphasize/italic em/i 斜体标签。emphasize是语义化标签，italic是物理性标签。
+实际开发过程中i标签只用于加图标。-->
+      <em>我是emphasize标签</em>
+      <br />
+      <i>我是italic标签</i>
+      <br />
+
+      <!-- 1.7、label 标题标签：用户界面中某个元素的说明。
+label的for属性值与某一个input的id值相同时，点击label可以聚焦该input输入框。
+onfocus=""聚焦，onblur=""失去焦点。自定义单选、多选要依靠label。 -->
+      <p>
+            <label for="username">用户名</label>
+            <input type="text" id="username" placeholder="用户名" />
+      </p>
+
+      <!-- 1.8、insert ins 下划线标签。 -->
+      <ins>我是insert标签</ins>
+      <br />
+      <p style="text-decoration: underline;">我是p标签</p>
 
 
 
-      <!-- 2、block element 块级元素：独占一行，可以定义宽高。 
-div/hx/p/address/ul/ol/li/dl/dt/dd/table/form/fieldset/legend  -->
-      <!-- 2.1、division div 网页的结构标签。div是布局的关键标签。当没有设置宽高的时候，div标签的宽高等同
-于盒子内的文字宽高，并且独占一行。
-      在编辑器内，文本的空格和换行都是文本分割符。浏览器不认识中文，一个字就相当于一个单词，因此汉字到达
-盒子边界时自动换行。浏览器认识英文，一个单词相当于一个字符串。如果一个单词的长度超过盒子宽度，则单词会超出
-盒子。
+
+
+
+      <!-- 2、block element 块级元素：独占一行，可以定义宽高。
+          address/div/dl/dt/dd/ul/ol/li/form/fieldset/legend/hx/p/table -->
+
+      <!-- 2.1、address 地址标签。address和em相同，只是语义意思不同 -->
+      <address>北京市大兴区西环南路26号</address>
+      <br />
+
+      <!-- 2.2、division div 网页的结构标签。常用于布局。当没有设置宽高的时候，div标签的宽高等同
+于盒子内的文字宽高。
+      在编辑器内，文本的空格和换行都被看做是文本分割符。浏览器不认识中文，一个字就相当于一个单词，因此
+汉字到达盒子边界时自动换行。浏览器认识英文，一个单词相当于一个字符串。如果一个单词的长度超过盒子宽度，
+则单词会超出盒子。
       -->
       <div style="width: 200px; height: 100px; border: 1px solid #000">
             aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaa
       </div>
-      <!--2.2、heading 标签/标题标签。h1字体大小为2em。px：像素。em：该元素内部的文字大小乘以1。
-浏览器默认的文字大小是16px。-->
-      <h1></h1>
-      <h2></h2>
-      <h3></h3>
-      <h4></h4>
-      <h5></h5>
-      <h6></h6>
-      <!--2.3、 Paragraph标签 段落标签。默认文本大小：16px。 &nbsp;是缩进。
-style="text-indent: 2em;"：缩进两个字符。 -->
-      <div style="width: 200px; height: 200px; border: 1px solid #000">
-            <p style="text-indent: 2em;">我是一名前端程序师</p>
-      </div>
-      <!-- 2.4、order list/ ol有序列表， 2.5、unorder list/ ul无序列表。2.6、li列表项。布局标签
+
+      <!-- 2.3、definition list / dl定义列表  2.8、definition term /dt 定义一个项。
+2.9、definition description/dd  具体某一项的描述。-->
+      <dl>
+            <dt>我的梦想</dt>
+            <dd>
+                  我要成为WEB开发工程师
+            </dd>
+            <dd>我正在学习前端开发</dd>
+
+      </dl>
+
+      <!-- 2.5、order list/ ol有序列表， 2.6、unorder list/ ul无序列表。2.7、li列表项。布局标签
       <ol>中的type：设置排序的方式。start：排序的开始位置，仅限数字。reversed：倒序。
       <ul>中的type：设置列表的标识（disc实心圆点，square正方体，circle空心原点）
       -->
@@ -126,28 +146,56 @@ style="text-indent: 2em;"：缩进两个字符。 -->
             <li>JavaScript</li>
             <li>JAVA</li>
       </ul>
-      <!-- 2.7、definition list / dl定义列表  2.8、definition term /dt 定义一个项。
-2.9、definition description/dd  具体某一项的描述。-->
-      <dl>
-            <dt>我的梦想</dt>
-            <dd>
-                  我要成为WEB开发工程师
-            </dd>
-            <dd>我正在学习前端开发</dd>
 
-      </dl>
-      <!-- 2.10、table 表格。<table>中的border：表格的边框像素。cellpadding字体到表格边框的距离，
+      <!-- 2.8、form 表单标签。用于提交数据。表单的两个关键因素：数据名称+数据的值。
+method：表单数据的提交方式，get|post。action：提交数据到后端的接收地址，不写就是提交到本页面。 -->
+
+      <!-- 2.9、fieldset：对表单进行分组。 2.10、legend：表示其父元素 <fieldset> 的内容标题。 -->
+      <form method="" action="">
+            <fieldset>
+                  <legend>用户登陆</legend>
+                  <p>
+                        <label for="username">用户名</label>
+                        <input type="text" id="username" placeholder="用户名" />
+                  </p>
+                  <p>
+                        <label for="password">密码</label>
+                        <input type="text" id="password" placeholder="密码" />
+                  </p>
+                  <p>
+                        <input type="submit">
+                  </p>
+            </fieldset>
+            <br />
+            <input type="submit">
+      </form>
+
+      <!--2.11、heading 标签/标题标签。h1字体大小为2em。px：像素。em：该元素内部的文字大小乘以1。
+浏览器默认的文字大小是16px。-->
+      <h1></h1>
+      <h2></h2>
+      <h3></h3>
+      <h4></h4>
+      <h5></h5>
+      <h6></h6>
+
+      <!--2.12、 Paragraph标签 段落标签。默认文本大小：16px。 &nbsp;是缩进。
+style="text-indent: 2em;"：缩进两个字符。 -->
+      <div style="width: 200px; height: 200px; border: 1px solid #000">
+            <p style="text-indent: 2em;">我是一名前端程序师</p>
+      </div>
+      
+      <!-- 2.13、table 表格。<table>中的border：表格的边框像素。cellpadding字体到表格边框的距离，
 即单元格内边距。cellspacing单元格到单元格之间，即单元格间距。
-      <caption> 表格的标题标签
-      table row /<tr> 表格行标签，其中包裹th或者td。table header cell/<th>是表头标签 
-table data cell/<td>是单元格标签。
-      colspan属性定义合并几列。合并的数字加前面的td要等于列数。rowspan：属性定义合并几行，向下合并几行。
-align="left|center|right"居中
-     table head/<thead>: 表格的页眉标签。table foot /<tfoot>：表格的页尾标签
-     table body/<tbody>：表格的主体标签
-     三个标签必须同时出现 thead -> tfoot -> tbody。
+      <caption>：表格的标题标签。table head/<theard>：定义一组表格的列头的行，表格的页眉标签。
+table body/<tbody>：表格的主体标签。table foot /<tfoot>：表格的页尾标签。三个标签必须同时
+出现 thead -> tfoot -> tbody。
+table row /<tr>：表格行标签，其中包裹<td>和<th>。table data cell/<td>是单元格标签。
+table header cell/<th>：定义表格内的表头单元格。
+      colspan属性定义合并几列，合并的数字加前面的td要等于列数。
+      rowspan：属性定义合并几行，向下合并几行。
+      align="left|center|right"居中
       -->
-
       <table border="1" cellpadding="10" cellspacing="10">
             <caption>VIP班级学生联络表</caption>
             <thead>
@@ -185,50 +233,31 @@ align="left|center|right"居中
                   </tr>
             </tbody>
             <tfoot>
-
             </tfoot>
       </table>
-      <!-- 2.11、address 地址标签。address和em相同，只是语义意思不同 -->
-      <address>北京市大兴区西环南路26号</address>
-      <br />
 
-      <!-- 表单是用户提交数据用的。表单的两个关键因素：数据名称+数据的值。
-      2.12、form表单总标签，没有任何样式，只是用于包裹表单。具有一些提交数据的属性设置。
-method：表单数据的提交方式，get|post。action：提交数据到后端的接收地址，不写就是提交到本页面。 -->
 
-      <!-- 2.13、fieldset 块级元素 legend  块级封装表单组 -->
-      <form action="">
-            <fieldset>
-                  <legend>用户登陆</legend>
-                  <p>
-                        <label for="username">用户名</label>
-                        <input type="text" id="username" placeholder="用户名" />
-                  </p>
-                  <p>
-                        <label for="password">密码</label>
-                        <input type="text" id="password" placeholder="密码" />
-                  </p>
-                  <p>
-                        <input type="submit">
-                  </p>
-            </fieldset>
-            <br />
-            <input type="submit">
-      </form>
+      
 
 
 
 
-      <!-- 3、inline-block element 内联块元素：不独占一行，可以定义宽高 -->
-      <!-- 3.1、image img 图片标签。source src 资源地址。../：当前目录的父级目录中的文件。./当前
+      <!-- 3、inline-block element 内联块元素：不独占一行，可以定义宽高 
+      button/img/iframe/input/select/textarea  -->
+
+      <!-- 3.1、submit提交form表单数据。button：按钮标签 -->
+      <button type="submit">按钮</button>
+      <input type="submit" value="按钮">
+
+      <!-- 3.2、image/img 图片标签。source/src 资源地址。../：当前目录的父级目录中的文件。./当前
 文件夹中的文件。src="./src/index.js" 等价于 src="src/index.js"。/：项目根目录。  
 alt：当图片加载失败时，在img标签处显示alt的内容。
 title： 当鼠标移动到图片时，会显示title的内容。   -->
       <img src="img/" alt="" title="">
 
-      <!-- 3.2、iframe 内联框架。占用部分的页面结构，width/height决定占比。
-src是结构的内容地址 点击切换的时候不加载整个页面，而是只加载框架内部的页面。缺点是对搜索引擎不友好，滚动条的
-体系混乱，数据请求的等待无法控制，请求很困难。frameborder边框的线，scrolling内部滚动条是否可用。
+      <!-- 3.3、iframe 内联框架。占用部分的页面结构，width/height决定占比。
+src是结构的内容地址 点击切换的时候不加载整个页面，而是只加载框架内部的页面。缺点是对搜索引擎不友好，
+滚动条的样式体系混乱，数据请求很困难。frameborder边框的线，scrolling内部滚动条是否可用。
       -->
       <p>
             <a href="http://www.baidu.com" target="main">京东网</a>
@@ -236,19 +265,19 @@ src是结构的内容地址 点击切换的时候不加载整个页面，而是�
             <a href="http://www.tmall.com" target="main">天猫网</a>
       </p>
 
-      <iframe width="500px" height="500px" src="http://www.baidu.com" name="main" frameborder="1"
-            scrolling="no"></iframe>
+      <iframe width="500px" height="500px" src="http://www.baidu.com" name="main" 
+            frameborder="1" scrolling="no"></iframe>
 
 
 
-      <!-- 2.12、form表单总标签，没有任何样式，只是用于包裹表单。具有一些提交数据的属性设置。
-method：表单数据的提交方式，get|post。action：提交数据到后端的接收地址，不写就是提交到本页面。
-      3.3、input 内联块级元素。name：表示提交数据的名称。必须要有name值，submit才能提交到action
+      <!-- 3.4、input 输入框。name：表示提交数据的名称。必须要有name值，submit才能提交到action
 相应的url上去。value：提交数据的值，即用户输入的信息。如果写了就会在页面中显示，即默认值。
 maxlength是输入的最大数据的长度，只算字符，中文英文符号都算字符。
       决定input显示什么的并不是input本身，而是input中type属性的值。text：文本输入框，
 password：密码输入框。submit：提交输入框，提交后就会在?后面带着数据名称和值。 ?username=languiji&password=aixiaoye
-      -->
+      input中的readonly：表示输入框只能读，无法输入和修改，表单提交时可以将数据给后端。
+disabled表示该输入框禁用、无法输入和修改，表单提交时也无法将数据给后端。
+-->
       <form method="get" action="">
             <input type="text" name="" id="">
       </form>
@@ -266,11 +295,6 @@ password：密码输入框。submit：提交输入框，提交后就会在?后�
       </form>
 
 
-      <!-- label标签 内联元素
-      label的for属性值与某一个input的id值相同时，点击label可以聚焦该input输入框。
-      input中的readonly：表示输入框只能读，无法输入和修改，表单提交时可以将数据给后端。
-disabled表示该输入框禁用、无法输入和修改，表单提交时也无法将数据给后端。
-      onfocus=""聚焦，onblur=""失去焦点。自定义单选、多选要依靠label。-->
       <form action="">
             <label for="username"></label>
             <input type="text" name="" id="username" readonly disabled value="23" />
@@ -316,8 +340,8 @@ disabled表示该输入框禁用、无法输入和修改，表单提交时也无
             <input type="submit">
       </form>
 
-      <!-- 3.4、textarea 输入框 cols是可见宽度 8px*cols + 17px。rows可见行数。textarea中是
-不可以有换行和空格。textarea没有value属性。
+      <!-- 3.5、textarea 输入框 cols是可见宽度 8px*cols + 17px。rows可见行数。textarea中是
+不可以有换行和空格，文本中的换行和空格都会被看作是换行符。textarea没有value属性。
       -->
       <form action="">
             <textarea name="" id="" cols="30" rows="10">
@@ -335,9 +359,7 @@ disabled表示该输入框禁用、无法输入和修改，表单提交时也无
       <br />
       <hr />
 
-      <!-- submit提交form表单数据。button是常规按钮 -->
-      <button type="submit">按钮</button>
-      <input type="submit" value="按钮">
+      
 
 
 
